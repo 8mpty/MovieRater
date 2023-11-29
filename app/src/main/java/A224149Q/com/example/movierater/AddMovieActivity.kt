@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.CheckBox
 import android.widget.RadioGroup
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_add_movie.voiChk

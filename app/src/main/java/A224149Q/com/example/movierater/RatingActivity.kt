@@ -4,8 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
@@ -26,7 +24,7 @@ class RatingActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item?.itemId == android.R.id.home){
+        if(item.itemId == android.R.id.home){
             Toast.makeText(this, "Back",Toast.LENGTH_SHORT).show()
             val detail = Intent()
             detail.putExtra(RETURN_REVIEW,share_view.text.toString())

@@ -17,8 +17,7 @@
             android:exported="true" />
         <activity
             android:name=".RatingActivity"
-            android:exported="true"
-            android:parentActivityName=".MovieDetail" />
+            android:exported="true" />
         <activity
             android:name=".MovieDetail"
             android:exported="true"

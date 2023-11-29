@@ -81,10 +81,10 @@ class AddMovieActivity_old : AppCompatActivity() {
             if (allFieldsFilled) {
                 displayToast(
                     "Title = $title\n" +
-                            "Overview = $description\n" +
-                            "Release date = $releaseDate\n" +
-                            "Language = $languageType\n" +
-                            "Not suitable for all ages = $suitable ${reasons(suitable,violence, language)}"
+                    "Overview = $description\n" +
+                    "Release date = $releaseDate\n" +
+                    "Language = $languageType\n" +
+                    "Not suitable for all ages = $suitable ${reasons(suitable,violence, language)}"
                 )
             }
         }

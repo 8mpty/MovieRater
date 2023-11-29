@@ -1,5 +1,6 @@
 package A224149Q.com.example.movierater
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,82 +10,83 @@ import android.view.MenuItem
 import android.view.View
 import kotlinx.android.synthetic.main.activity_movie_detail.act_reason
 import kotlinx.android.synthetic.main.activity_movie_detail.act_reviews
-import kotlinx.android.synthetic.main.activity_movie_detail_old.act_age
-import kotlinx.android.synthetic.main.activity_movie_detail_old.act_language
-import kotlinx.android.synthetic.main.activity_movie_detail_old.act_overview
-import kotlinx.android.synthetic.main.activity_movie_detail_old.act_releasedate
-import kotlinx.android.synthetic.main.activity_movie_detail_old.act_title
+import kotlinx.android.synthetic.main.activity_movie_detail.act_age
+import kotlinx.android.synthetic.main.activity_movie_detail.act_language
+import kotlinx.android.synthetic.main.activity_movie_detail.act_overview
+import kotlinx.android.synthetic.main.activity_movie_detail.act_releasedate
+import kotlinx.android.synthetic.main.activity_movie_detail.act_title
 
 class MovieDetail : AppCompatActivity() {
     val RATING_CODE = 1;
+    val movieEntityClass = MovieEntity()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_detail)
         registerForContextMenu(act_reviews)
         main();
-        Log.e("TEST","REVIEWS START: " + MovieEntity.reviews)
+        Log.e("TEST","REVIEWS START: " + movieEntityClass.reviews)
     }
     private fun main(){
         val intentTitle = intent.getStringExtra("title")
         val intentOverview = intent.getStringExtra("overview")
-        val intentReviews =intent.getStringExtra("reviews")
+        var intentReviews = intent.getStringExtra("reviews")
         val intentLanguage = intent.getStringExtra("language")
         val intentDate = intent.getStringExtra("date")
         val intentAge = intent.getStringExtra("nsfaa")
         val intentViolence = intent.getStringExtra("violence")
         val intentLanguageUsed = intent.getStringExtra("languageUsed")
         if(intentTitle != null){
-            MovieEntity.title = intentTitle.toString()
+            movieEntityClass.title = intentTitle.toString()
         }
         if(intentOverview != null){
-            MovieEntity.overview = intentOverview.toString()
+            movieEntityClass.overview = intentOverview.toString()
         }
-        if(intentReviews == null){
-            MovieEntity.reviews = "No Reviews yet.\nLong press here to add your review."
+        if(intentReviews != null){
+            movieEntityClass.reviews = intentReviews.toString()
         }else{
-            MovieEntity.reviews = intentReviews.toString()
+            movieEntityClass.reviews = "No Reviews yet.\nLong press here to add your review."
         }
         if(intentLanguage != null){
-            MovieEntity.language = intentLanguage.toString()
+            movieEntityClass.language = intentLanguage.toString()
         }
         if(intentDate != null){
-            MovieEntity.releaseDate = intentDate.toString()
+            movieEntityClass.releaseDate = intentDate.toString()
         }
 
         if(intentAge != null){
             if(intentAge == "true"){
-                MovieEntity.age = "No"
+                movieEntityClass.age = "No"
             }else{
-                MovieEntity.age = "Yes"
+                movieEntityClass.age = "Yes"
             }
         }
         if(intentAge != null && intentAge == "true"){
             if(intentViolence != null && intentViolence == "true"){
-                MovieEntity.violence = "Violence"
+                movieEntityClass.violence = "Violence"
             }else{
-                MovieEntity.violence = ""
+                movieEntityClass.violence = ""
             }
         }else if(intentAge != null && intentAge == "false"){
-            MovieEntity.violence = ""
+            movieEntityClass.violence = ""
         }
 
         if(intentAge != null && intentAge == "true"){
             if(intentLanguageUsed != null && intentLanguageUsed == "true"){
-                MovieEntity.languageUsed = "Language Used"
+                movieEntityClass.languageUsed = "Language Used"
             }else{
-                MovieEntity.languageUsed = ""
+                movieEntityClass.languageUsed = ""
             }
         }else if(intentAge != null && intentAge == "false"){
-            MovieEntity.languageUsed = ""
+            movieEntityClass.languageUsed = ""
         }
 
-        act_title.text = MovieEntity.title
-        act_overview.text = MovieEntity.overview
-        act_reviews.text = MovieEntity.reviews
-        act_language.text = MovieEntity.language
-        act_releasedate.text = MovieEntity.releaseDate
-        act_age.text = MovieEntity.age
-        act_reason.text = reasons(MovieEntity.age, MovieEntity.violence, MovieEntity.languageUsed)
+        act_title.text = movieEntityClass.title
+        act_overview.text = movieEntityClass.overview
+        act_reviews.text = movieEntityClass.reviews
+        act_language.text = movieEntityClass.language
+        act_releasedate.text = movieEntityClass.releaseDate
+        act_age.text = movieEntityClass.age
+        act_reason.text = reasons(movieEntityClass.age, movieEntityClass.violence, movieEntityClass.languageUsed)
     }
 
     private fun reasons(age: String, violence: String, language: String): String{
@@ -103,8 +105,7 @@ class MovieDetail : AppCompatActivity() {
         }
     }
 
-    override fun onCreateContextMenu(menu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?)
-    {
+    override fun onCreateContextMenu(menu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
         if(v?.id == R.id.act_reviews){
             menu?.add(1,1001,1,"Add Review")
         }
@@ -121,25 +122,22 @@ class MovieDetail : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == RATING_CODE){
-            if(resultCode == RESULT_OK){
+            if(resultCode == Activity.RESULT_OK) {
                 val getReview = data?.getStringExtra(RatingActivity.RETURN_REVIEW) as String
-                MovieEntity.reviews = getReview
-                Log.e("Test", "Review Data" + getReview)
-                act_reviews.text = getReview
+                movieEntityClass.reviews = getReview
+                act_reviews.text = "\" " + movieEntityClass.reviews + " \""
             }
         }
     }
 
     class MovieEntity{
-        companion object{
-            var title = ""
-            var overview = ""
-            var reviews = ""
-            var language = ""
-            var releaseDate = ""
-            var age = ""
-            var violence = ""
-            var languageUsed = ""
-        }
+        var title = ""
+        var overview = ""
+        var reviews = ""
+        var language = ""
+        var releaseDate = ""
+        var age = ""
+        var violence = ""
+        var languageUsed = ""
     }
 }
