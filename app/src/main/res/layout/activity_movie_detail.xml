@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    tools:context=".MovieDetail">
+
+    <LinearLayout
+        android:id="@+id/icon"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@drawable/pngwing"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_gravity="center"
+            android:importantForAccessibility="no" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/title"
+        android:text="@string/title"
+        android:textSize="15sp"
+        android:layout_below="@+id/icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/act_title"
+        android:text="@string/placeholder"
+        android:textSize="20sp"
+        android:paddingVertical="5dp"
+        android:layout_below="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/overview"
+        android:text="@string/overview"
+        android:textSize="15sp"
+        android:layout_below="@+id/act_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/act_overview"
+        android:text="@string/placeholder"
+        android:textSize="20sp"
+        android:paddingVertical="5dp"
+        android:layout_below="@+id/overview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/reviews"
+        android:text="@string/review"
+        android:textSize="15sp"
+        android:layout_below="@+id/act_overview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/act_reviews"
+        android:text="@string/placeholder"
+        android:textSize="20sp"
+        android:paddingVertical="5dp"
+        android:layout_below="@+id/reviews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/language"
+        android:text="@string/language"
+        android:textSize="15sp"
+        android:layout_below="@+id/act_reviews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/act_language"
+        android:text="@string/placeholder"
+        android:textSize="20sp"
+        android:paddingVertical="5dp"
+        android:layout_below="@+id/language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/releasdate"
+        android:text="@string/release_date"
+        android:textSize="15sp"
+        android:layout_below="@id/act_language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/act_releasedate"
+        android:text="@string/placeholder"
+        android:textSize="20sp"
+        android:paddingVertical="5dp"
+        android:layout_below="@+id/releasdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/age"
+        android:text="@string/disclaimer"
+        android:textSize="15sp"
+        android:layout_below="@+id/act_releasedate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/act_age"
+        android:text="@string/placeholder"
+        android:textSize="20sp"
+        android:paddingVertical="5dp"
+        android:layout_below="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/act_reason"
+        android:text="@string/placeholder"
+        android:textSize="20sp"
+        android:paddingVertical="5dp"
+        android:layout_below="@+id/age"
+        android:layout_toEndOf="@+id/act_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

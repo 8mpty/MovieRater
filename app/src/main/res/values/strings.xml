@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">MovieRater</string>
+    <string name="name_placeholder">Please input movie name</string>
+    <string name="desc_placeholder">Please input movie description</string>
+    <string name="reld_placeholder">Please input movie release date</string>
+    <string name="title">Title: </string>
+    <string name="overview">Overview: </string>
+    <string name="name">Name: </string>
+    <string name="description">Description: </string>
+    <string name="language">Language: </string>
+    <string name="release_date">Release Date: </string>
+    <string name="disclaimer">Suitable for children below 13: </string>
+    <string name="ent_review">Enter your review for the movie : </string>
+    <string name="share">Share your view on the show: </string>
+    <string name="review">Reviews:</string>
+    <string name="title_activity_movie_page">MovieActivityPage</string>
+    <string name="English">English</string>
+    <string name="Chinese">Chinese</string>
+    <string name="Malay">Malay</string>
+    <string name="Tamil">Tamil</string>
+    <string name="nsfaa">Not suitable for all audience</string>
+    <string name="Violence">Violence</string>
+    <string name="LanUsed">Language Used</string>
+    <string name="add_movie">ADD MOVIE</string>
+    <string name="add">ADD</string>
+    <string name="save">SAVE</string>
+    <string name="cancel">Cancel</string>
+    <string name="placeholder">PlAcEhOlDeR</string>
+    <string name="venom">Venom</string>
+</resources>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/topLay"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/nameTv"
+            android:text="@string/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/nameEt"
+            android:hint="@string/name_placeholder"
+            android:layout_below="@id/nameTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:autofillHints="no"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/desTv"
+            android:text="@string/description"
+            android:layout_below="@id/nameEt"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"/>
+        <EditText
+            android:id="@+id/desEt"
+            android:layout_below="@id/desTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:textSize="20sp"
+            android:importantForAutofill="no"
+            android:hint="@string/desc_placeholder"/>
+
+        <TextView
+            android:id="@+id/lanTv"
+            android:text="@string/language"
+            android:layout_below="@id/desEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"/>
+
+        <RadioGroup
+            android:id="@+id/lanRad"
+            android:layout_below="@id/lanTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/engRad"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/lanTv">
+
+            <RadioButton
+                android:id="@+id/engRad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/English" />
+
+            <RadioButton
+                android:id="@+id/chiRad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Chinese" />
+            <RadioButton
+                android:id="@+id/malRad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Malay" />
+            <RadioButton
+                android:id="@+id/tamRad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Tamil" />
+        </RadioGroup>
+        <TextView
+            android:id="@+id/relTv"
+            android:text="@string/release_date"
+            android:layout_below="@id/lanRad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"/>
+        <EditText
+            android:id="@+id/relEt"
+            android:layout_below="@id/relTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="datetime"
+            android:textSize="20sp"
+            android:importantForAutofill="no"
+            android:hint="@string/reld_placeholder"/>
+
+        <CheckBox
+            android:id="@+id/nsfaaChk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relEt"
+            android:text="@string/nsfaa" />
+
+        <LinearLayout
+            android:id="@+id/chkLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nsfaaChk"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            tools:visibility="gone">
+
+            <CheckBox
+                android:id="@+id/voiChk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Violence" />
+
+            <CheckBox
+                android:id="@+id/lanUsedChk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/LanUsed" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_below="@+id/topLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_movie"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+</RelativeLayout>
