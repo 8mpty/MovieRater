@@ -19,11 +19,11 @@ import kotlinx.android.synthetic.main.activity_add_movie.nsfaaChk
 import kotlinx.android.synthetic.main.activity_add_movie.relEt
 
 class AddMovieActivity : AppCompatActivity() {
+    private var allFieldsFilled = true;
     private var languageType = "English"
     private var suitable: Boolean = false
     private var violence = ""
     private var language = ""
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_movie)
@@ -37,7 +37,6 @@ class AddMovieActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item?.itemId == R.id.menu_add){
-            var allFieldsFilled = true;
             if(nameEt.text.toString().isEmpty()){
                 nameEt.error = "Field Empty"
                 allFieldsFilled = false

@@ -124,8 +124,12 @@ class MovieDetail : AppCompatActivity() {
         if(requestCode == RATING_CODE){
             if(resultCode == Activity.RESULT_OK) {
                 val getReview = data?.getStringExtra(RatingActivity.RETURN_REVIEW) as String
-                movieEntityClass.reviews = getReview
-                act_reviews.text = "\" " + movieEntityClass.reviews + " \""
+                if(getReview != ""){
+                    movieEntityClass.reviews = "\" " + getReview + " \""
+                    act_reviews.text = movieEntityClass.reviews
+                }else{
+                    act_reviews.text = movieEntityClass.reviews
+                }
             }
         }
     }
