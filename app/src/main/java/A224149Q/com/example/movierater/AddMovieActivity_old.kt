@@ -16,16 +16,16 @@ import kotlinx.android.synthetic.main.activity_add_movie_old.relEt
 import kotlinx.android.synthetic.main.activity_add_movie_old.voiChk
 
 class AddMovieActivity_old : AppCompatActivity() {
+    private var languageType = "English"
+    private var suitable = false
+    private var violence = ""
+    private var language = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_movie_old)
         main();
     }
     private fun main(){
-        var languageType = "English"
-        var suitable = false
-        var violence = ""
-        var language = ""
         nsfaaChk.setOnCheckedChangeListener { buttonView, isChecked ->
             if (nsfaaChk.isChecked) {
                 chkLay.visibility = View.VISIBLE;
